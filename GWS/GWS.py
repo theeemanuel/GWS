@@ -43,3 +43,6 @@ class UnitGWS(GWS):
         hx = ( h0 * np.cos(self.inclination) * np.sin(2*np.pi*self.frequency*t) )
 
         return hp, hx
+    
+    def spindownStrain(self, fdot):     #fdot in units of e-10 Hz/s
+        return 2.6e-25 * (1/self.distance) * ((1/self.frequency) * (fdot) * self.inertialMoment)**0.5
